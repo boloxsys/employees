@@ -3,6 +3,7 @@ from django.views.generic import TemplateView, ListView, CreateView
 #import models
 from .models import Prueba
 #vistas genericas - ejemplo con TemplateView
+from .forms import PruebaForm
 
 class PruebaView(TemplateView):
     template_name = 'home/prueba.html'
@@ -23,4 +24,5 @@ class ListarPrueba(ListView):
 class PruebaCreateView(CreateView):
     model = Prueba
     template_name = "home/add.html"
-    fields = ['titulo', 'subtitulo','cantidad']
+    form_class = PruebaForm
+    success_url = '/'
